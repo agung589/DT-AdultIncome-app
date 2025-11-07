@@ -61,7 +61,7 @@ st.write("### Data yang kamu input:")
 st.dataframe(input_data)
 
 # === Prediksi ===
-if st.button("Prediksi Penghasilan"):
+if st.button("Prediksi Penghasilan (Decision Tree)", key="predict_DT"):
     try:
         for col in ['workclass', 'occupation', 'sex']:
             input_data[col] = label_encoder.transform(input_data[col])
@@ -72,5 +72,6 @@ if st.button("Prediksi Penghasilan"):
 
     except Exception as e:
         st.error(f"⚠️ Terjadi error saat prediksi: {e}")
+
 
 
