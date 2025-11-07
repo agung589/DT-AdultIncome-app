@@ -21,10 +21,10 @@ sex = st.selectbox("Jenis Kelamin", ["Male", "Female"])
 
 input_data = pd.DataFrame({
     "age": [age],
-    "education_num": [education_num],
-    "hours_per_week": [hours_per_week],
-    "capital_gain": [capital_gain],
-    "capital_loss": [capital_loss],
+    "education.num": [education_num],
+    "hours.per.week": [hours_per_week],
+    "capital.gain": [capital_gain],
+    "capital.loss": [capital_loss],
     "workclass": [workclass],
     "occupation": [occupation],
     "sex": [sex]
@@ -45,3 +45,4 @@ if st.button("Prediksi Penghasilan", key="predict_DT"):
         st.success(f"💰 Prediksi: {income_label}")
     except Exception as e:
         st.error(f"⚠️ Terjadi error saat prediksi: {e}")
+
