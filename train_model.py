@@ -9,12 +9,22 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import LabelEncoder
 import joblib
 
-# 1️⃣ Baca dataset
+# === Baca dataset ===
 df = pd.read_csv('Dataset_adult_income_clean.csv')
 
-# 2️⃣ Pisahkan fitur (X) dan target (y)
-# Pastikan kolom target kamu bernama 'income' (<=50K / >50K)
-X = df.drop('income', axis=1)
+# === Pilih fitur yang sama dengan yang digunakan di Streamlit ===
+selected_features = [
+    'age',
+    'education.num',
+    'hours.per.week',
+    'capital.gain',
+    'capital.loss',
+    'workclass',
+    'occupation',
+    'sex'
+]
+
+X = df[selected_features]
 y = df['income']
 
 # Ubah data kategorikal menjadi numerik (Label Encoding per kolom)
@@ -40,3 +50,4 @@ joblib.dump(model, "model.pkl")
 joblib.dump(encoders, "encoders.pkl")
 joblib.dump(target_encoder, "target_encoder.pkl")
 print("✅ Model & Encoders berhasil disimpan!")
+
